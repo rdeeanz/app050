@@ -1,0 +1,298 @@
+import { Game, Category, GameSection } from '@/types';
+
+// Generate placeholder image URLs using picsum for variety
+const getGameThumbnail = (id: number) =>
+    `https://picsum.photos/seed/game${id}/400/300`;
+
+export const categories: Category[] = [
+    { id: '1', name: 'All Games', slug: 'all' },
+    { id: '2', name: 'Action', slug: 'action' },
+    { id: '3', name: 'Adventure', slug: 'adventure' },
+    { id: '4', name: 'Puzzle', slug: 'puzzle' },
+    { id: '5', name: 'Racing', slug: 'racing' },
+    { id: '6', name: 'Sports', slug: 'sports' },
+    { id: '7', name: 'Strategy', slug: 'strategy' },
+    { id: '8', name: 'Multiplayer', slug: 'multiplayer' },
+    { id: '9', name: 'Shooter', slug: 'shooter' },
+    { id: '10', name: 'RPG', slug: 'rpg' },
+    { id: '11', name: 'Simulation', slug: 'simulation' },
+    { id: '12', name: 'Horror', slug: 'horror' },
+];
+
+export const games: Game[] = [
+    {
+        id: '1',
+        title: 'Cyber Racer X',
+        thumbnail: getGameThumbnail(1),
+        badges: [{ type: 'hot', label: 'HOT' }],
+        category: 'racing',
+        plays: 1250000,
+        rating: 4.8,
+    },
+    {
+        id: '2',
+        title: 'Zombie Outbreak',
+        thumbnail: getGameThumbnail(2),
+        badges: [{ type: 'top', label: 'TOP' }],
+        category: 'shooter',
+        plays: 890000,
+        rating: 4.6,
+    },
+    {
+        id: '3',
+        title: 'Puzzle Kingdom',
+        thumbnail: getGameThumbnail(3),
+        badges: [{ type: 'new', label: 'NEW' }],
+        category: 'puzzle',
+        plays: 450000,
+        rating: 4.9,
+    },
+    {
+        id: '4',
+        title: 'Space Warriors',
+        thumbnail: getGameThumbnail(4),
+        badges: [{ type: 'hot', label: 'HOT' }, { type: 'top', label: 'TOP' }],
+        category: 'action',
+        plays: 2100000,
+        rating: 4.7,
+    },
+    {
+        id: '5',
+        title: 'Fantasy Quest',
+        thumbnail: getGameThumbnail(5),
+        badges: [{ type: 'updated', label: 'UPDATED' }],
+        category: 'rpg',
+        plays: 780000,
+        rating: 4.5,
+    },
+    {
+        id: '6',
+        title: 'Neon Drift',
+        thumbnail: getGameThumbnail(6),
+        badges: [{ type: 'new', label: 'NEW' }],
+        category: 'racing',
+        plays: 320000,
+        rating: 4.4,
+    },
+    {
+        id: '7',
+        title: 'Block Builder Pro',
+        thumbnail: getGameThumbnail(7),
+        badges: [],
+        category: 'simulation',
+        plays: 1500000,
+        rating: 4.8,
+    },
+    {
+        id: '8',
+        title: 'Soccer Champions',
+        thumbnail: getGameThumbnail(8),
+        badges: [{ type: 'top', label: 'TOP' }],
+        category: 'sports',
+        plays: 920000,
+        rating: 4.3,
+    },
+    {
+        id: '9',
+        title: 'Dungeon Crawler',
+        thumbnail: getGameThumbnail(9),
+        badges: [{ type: 'hot', label: 'HOT' }],
+        category: 'adventure',
+        plays: 670000,
+        rating: 4.6,
+    },
+    {
+        id: '10',
+        title: 'Tower Defense Pro',
+        thumbnail: getGameThumbnail(10),
+        badges: [{ type: 'updated', label: 'UPDATED' }],
+        category: 'strategy',
+        plays: 540000,
+        rating: 4.5,
+    },
+    {
+        id: '11',
+        title: 'Haunted Mansion',
+        thumbnail: getGameThumbnail(11),
+        badges: [{ type: 'new', label: 'NEW' }],
+        category: 'horror',
+        plays: 230000,
+        rating: 4.7,
+    },
+    {
+        id: '12',
+        title: 'Battle Royale Arena',
+        thumbnail: getGameThumbnail(12),
+        badges: [{ type: 'hot', label: 'HOT' }, { type: 'top', label: 'TOP' }],
+        category: 'multiplayer',
+        plays: 3200000,
+        rating: 4.9,
+    },
+    {
+        id: '13',
+        title: 'Mind Bender',
+        thumbnail: getGameThumbnail(13),
+        badges: [],
+        category: 'puzzle',
+        plays: 410000,
+        rating: 4.4,
+    },
+    {
+        id: '14',
+        title: 'Street Fighter X',
+        thumbnail: getGameThumbnail(14),
+        badges: [{ type: 'top', label: 'TOP' }],
+        category: 'action',
+        plays: 1100000,
+        rating: 4.6,
+    },
+    {
+        id: '15',
+        title: 'Farm Simulator',
+        thumbnail: getGameThumbnail(15),
+        badges: [],
+        category: 'simulation',
+        plays: 890000,
+        rating: 4.2,
+    },
+    {
+        id: '16',
+        title: 'Ninja Warrior',
+        thumbnail: getGameThumbnail(16),
+        badges: [{ type: 'new', label: 'NEW' }],
+        category: 'action',
+        plays: 280000,
+        rating: 4.5,
+    },
+    {
+        id: '17',
+        title: 'Chess Master',
+        thumbnail: getGameThumbnail(17),
+        badges: [{ type: 'updated', label: 'UPDATED' }],
+        category: 'strategy',
+        plays: 620000,
+        rating: 4.8,
+    },
+    {
+        id: '18',
+        title: 'Basketball Legends',
+        thumbnail: getGameThumbnail(18),
+        badges: [{ type: 'hot', label: 'HOT' }],
+        category: 'sports',
+        plays: 750000,
+        rating: 4.4,
+    },
+    {
+        id: '19',
+        title: 'Mystery Island',
+        thumbnail: getGameThumbnail(19),
+        badges: [],
+        category: 'adventure',
+        plays: 340000,
+        rating: 4.3,
+    },
+    {
+        id: '20',
+        title: 'Galaxy Shooter',
+        thumbnail: getGameThumbnail(20),
+        badges: [{ type: 'top', label: 'TOP' }],
+        category: 'shooter',
+        plays: 980000,
+        rating: 4.7,
+    },
+    {
+        id: '21',
+        title: 'Pixel Platformer',
+        thumbnail: getGameThumbnail(21),
+        badges: [{ type: 'new', label: 'NEW' }],
+        category: 'adventure',
+        plays: 190000,
+        rating: 4.6,
+    },
+    {
+        id: '22',
+        title: 'Color Match',
+        thumbnail: getGameThumbnail(22),
+        badges: [],
+        category: 'puzzle',
+        plays: 520000,
+        rating: 4.1,
+    },
+    {
+        id: '23',
+        title: 'Monster Truck Rally',
+        thumbnail: getGameThumbnail(23),
+        badges: [{ type: 'hot', label: 'HOT' }],
+        category: 'racing',
+        plays: 680000,
+        rating: 4.5,
+    },
+    {
+        id: '24',
+        title: 'Wizard Academy',
+        thumbnail: getGameThumbnail(24),
+        badges: [{ type: 'updated', label: 'UPDATED' }],
+        category: 'rpg',
+        plays: 410000,
+        rating: 4.4,
+    },
+];
+
+// Helper to get games by category
+export const getGamesByCategory = (category: string): Game[] => {
+    if (category === 'all') return games;
+    return games.filter(game => game.category === category);
+};
+
+// Helper to get games with specific badge
+export const getGamesByBadge = (badgeType: string): Game[] => {
+    return games.filter(game =>
+        game.badges.some(badge => badge.type === badgeType)
+    );
+};
+
+// Pre-configured sections
+export const gameSections: GameSection[] = [
+    {
+        id: 'top-picks',
+        title: '🔥 Top Picks',
+        games: games.filter(g => g.badges.some(b => b.type === 'top' || b.type === 'hot')).slice(0, 8),
+        viewAllLink: '/top-picks',
+        layout: 'carousel',
+    },
+    {
+        id: 'new-games',
+        title: '✨ New Games',
+        games: games.filter(g => g.badges.some(b => b.type === 'new')).slice(0, 8),
+        viewAllLink: '/new',
+        layout: 'carousel',
+    },
+    {
+        id: 'featured',
+        title: '⭐ Featured Games',
+        games: games.slice(0, 6),
+        viewAllLink: '/featured',
+        layout: 'grid',
+    },
+    {
+        id: 'action',
+        title: '💥 Action Games',
+        games: getGamesByCategory('action').slice(0, 8),
+        viewAllLink: '/category/action',
+        layout: 'carousel',
+    },
+    {
+        id: 'puzzle',
+        title: '🧩 Puzzle Games',
+        games: getGamesByCategory('puzzle').slice(0, 8),
+        viewAllLink: '/category/puzzle',
+        layout: 'carousel',
+    },
+    {
+        id: 'trending',
+        title: '📈 Trending Now',
+        games: [...games].sort((a, b) => b.plays - a.plays).slice(0, 8),
+        viewAllLink: '/trending',
+        layout: 'carousel',
+    },
+];
