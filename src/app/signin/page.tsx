@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { EnvelopeIcon, LockClosedIcon, UserIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 export default function SignInPage() {
+    const router = useRouter();
     const [isSignUp, setIsSignUp] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -16,12 +18,14 @@ export default function SignInPage() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Demo only - in real app, this would connect to authentication service
-        alert(isSignUp ? 'Sign up successful! (Demo)' : 'Sign in successful! (Demo)');
+        // Redirect to dashboard after successful login/register
+        router.push('/dashboard');
     };
 
     const handleGoogleSignIn = () => {
         // Demo only - in real app, this would initiate Google OAuth flow
-        alert('Google Sign In clicked! (Demo - would connect to Google OAuth)');
+        // Redirect to dashboard after successful Google login
+        router.push('/dashboard');
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,8 +63,8 @@ export default function SignInPage() {
                         <button
                             onClick={() => setIsSignUp(false)}
                             className={`flex-1 py-4 text-center font-semibold transition-colors ${!isSignUp
-                                    ? 'bg-surface text-primary border-b-2 border-primary'
-                                    : 'text-text-secondary hover:text-foreground'
+                                ? 'bg-surface text-primary border-b-2 border-primary'
+                                : 'text-text-secondary hover:text-foreground'
                                 }`}
                         >
                             Sign In
@@ -68,8 +72,8 @@ export default function SignInPage() {
                         <button
                             onClick={() => setIsSignUp(true)}
                             className={`flex-1 py-4 text-center font-semibold transition-colors ${isSignUp
-                                    ? 'bg-surface text-primary border-b-2 border-primary'
-                                    : 'text-text-secondary hover:text-foreground'
+                                ? 'bg-surface text-primary border-b-2 border-primary'
+                                : 'text-text-secondary hover:text-foreground'
                                 }`}
                         >
                             Register
@@ -134,19 +138,19 @@ export default function SignInPage() {
                                 </div>
                             )}
 
-                            {/* Email field */}
+                            {/* Email/Username field */}
                             <div>
                                 <label className="block text-sm font-medium text-text-secondary mb-2">
-                                    Email Address
+                                    {isSignUp ? 'Email Address' : 'Email Address or Username'}
                                 </label>
                                 <div className="relative">
                                     <EnvelopeIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
                                     <input
-                                        type="email"
+                                        type={isSignUp ? 'email' : 'text'}
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        placeholder="Enter your email"
+                                        placeholder={isSignUp ? 'Enter your email' : 'Enter email or username'}
                                         className="w-full pl-10 pr-4 py-3 bg-surface border border-white/10 rounded-lg text-foreground placeholder-text-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                                         required
                                     />
